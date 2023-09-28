@@ -53,7 +53,7 @@ class Solution:
             curr = mergeTwoLists(curr, lists[i])
         return curr
         '''
-        #Heap using solution
+        #Heap using solution, Time efficient
         head = ListNode(None)
         curr = head
         heap = []
