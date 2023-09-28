@@ -5,6 +5,8 @@
 #         self.next = next
 class Solution:
     def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
+        #Memory Efficient Solution
+        '''
         def mergeTwoLists(list1, list2):
             if not list1 or not list2:
                 if not list1 and list2:
@@ -50,3 +52,26 @@ class Solution:
         for i in range(1,len(lists)):
             curr = mergeTwoLists(curr, lists[i])
         return curr
+        '''
+        #Heap using solution
+        head = ListNode(None)
+        curr = head
+        heap = []
+        count =0
+
+        for i in range(len(lists)):
+            if lists[i]:
+                #Use Node as heap's value
+                heapq.heappush(heap, (lists[i].val, count, lists[i]))
+                count += 1
+
+        while heap:
+            val, ien, node = heapq.heappop(heap)
+            next_node = node.next
+            if next_node:
+                heapq.heappush(heap,(next_node.val,count,next_node))
+                count += 1
+            curr.next = node
+            curr = node
+
+        return head.next
