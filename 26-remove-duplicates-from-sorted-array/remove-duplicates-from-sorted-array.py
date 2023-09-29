@@ -22,7 +22,8 @@ class Solution:
         read_iter = 1
         write_iter = 0
         count = 1
-        while read_iter < len(nums):
+        length = len(nums)
+        while read_iter < length:
             if nums[read_iter] != nums[write_iter]:
                write_iter += 1
                nums[write_iter] = nums[read_iter]
