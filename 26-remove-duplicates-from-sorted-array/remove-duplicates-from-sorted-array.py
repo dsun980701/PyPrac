@@ -16,13 +16,13 @@ class Solution:
         # Time Efficient
         if not nums:
             return 0
-        elif len(nums) == 1:
+        length = len(nums)
+        if length == 1:
             return 1
 
         read_iter = 1
         write_iter = 0
         count = 1
-        length = len(nums)
         while read_iter < length:
             if nums[read_iter] != nums[write_iter]:
                write_iter += 1
