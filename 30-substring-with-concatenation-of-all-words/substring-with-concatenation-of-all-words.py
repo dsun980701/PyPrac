@@ -27,6 +27,8 @@ class Solution:
             i += 1
         return result
         '''
+        #Counter, Dict optimized Answer
+        
         if not words:
             return result
         result = []
@@ -34,24 +36,44 @@ class Solution:
         words_len = len(words)
         string_len = len(s)
         correct_answer = collections.Counter(words)
-        i = 0
-
-        while i <= string_len - (word_len * words_len):
-            a = s[i:i + word_len]
-            if a in words:
-                curr = {word : 0 for word in correct_answer}
-                curr[a] += 1
-                j = i + word_len
-                counter = 1
-                while j <= string_len - (word_len * (words_len - counter)):
-                    a = s[j:j + word_len]
-                    if a in curr and curr[a] < correct_answer[a]:
-                        curr[a] += 1
-                        counter += 1
-                        j = j + word_len
-                    else:
-                        break
-                if curr == correct_answer:
-                    result.append(i)
-            i += 1
+        for i in range(word_len):
+            while i <= string_len - (word_len * words_len):
+                a = s[i:i + word_len]
+                if a in words:
+                    curr = {word : 0 for word in correct_answer}
+                    curr[a] += 1
+                    j = i + word_len
+                    counter = 1
+                    while j <= string_len - (word_len * (words_len - counter)):
+                        a = s[j:j + word_len]
+                        if a in curr and curr[a] < correct_answer[a]:
+                            curr[a] += 1
+                            counter += 1
+                            j = j + word_len
+                        else:
+                            break
+                    if curr == correct_answer:
+                        result.append(i)
+                i += word_len
         return result
+        '''
+        #Sliding Window Algorithm Incorporation
+        if not words:
+            return result
+        result = []
+        word_len = len(words[0])
+        words_len = len(words)
+        string_len = len(s)
+        correct_answer = collections.Counter(words)
+        for i in range(word_len):
+            curr = collections.Counter()
+
+            for j in range(i, string_len - word_len + 1, word_len):
+                word = s[j:j + word_len]
+                if word in correct_answer:
+                    curr[word] += 1
+                    counter = 1
+                    while j <= string_len - (word_len * (words_len - counter)):
+                        
+'''
+
