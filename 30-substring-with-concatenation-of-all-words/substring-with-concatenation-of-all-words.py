@@ -27,9 +27,8 @@ class Solution:
             i += 1
         return result
         '''
-        
+        '''
         #Counter, Dict optimized Answer
-        
         if not words:
             return []
         result = []
@@ -59,20 +58,29 @@ class Solution:
         '''
         #Sliding Window Algorithm Incorporation
         if not words:
-            return result
-        result = []
+            return []
+        
         word_len = len(words[0])
         words_len = len(words)
         string_len = len(s)
         correct_answer = collections.Counter(words)
-        for i in range(word_len):
+        result = []
+        
+        for i in range(word_len): 
+            start = i
             curr = collections.Counter()
-
             for j in range(i, string_len - word_len + 1, word_len):
                 word = s[j:j + word_len]
                 if word in correct_answer:
                     curr[word] += 1
-                    counter = 1
-                    while j <= string_len - (word_len * (words_len - counter)):
-        '''
+                    while curr[word] > correct_answer[word]:
+                        curr[s[start:start+word_len]] -= 1
+                        start += word_len
+                    if j - start == word_len * (words_len - 1):
+                        result.append(start)
+                else:
+                    curr.clear()
+                    start = j + word_len
+        return result
+        
 
