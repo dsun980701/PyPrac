@@ -1,5 +1,6 @@
 class Solution:
     def findSubstring(self, s: str, words: List[str]) -> List[int]:
+        # Previous answer
         '''
         if not words:
             return result
@@ -38,7 +39,7 @@ class Solution:
         while i <= string_len - (word_len * words_len):
             a = s[i:i + word_len]
             if a in words:
-                curr = {word : 0 for word in words}
+                curr = {word : 0 for word in correct_answer}
                 curr[a] += 1
                 j = i + word_len
                 counter = 1
