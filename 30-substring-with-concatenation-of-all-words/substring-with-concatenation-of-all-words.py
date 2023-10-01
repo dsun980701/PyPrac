@@ -27,34 +27,34 @@ class Solution:
             i += 1
         return result
         '''
+        
         #Counter, Dict optimized Answer
         
         if not words:
-            return result
+            return []
         result = []
         word_len = len(words[0])
         words_len = len(words)
         string_len = len(s)
-        correct_answer = collections.Counter(words)
-        for i in range(word_len):
-            while i <= string_len - (word_len * words_len):
-                a = s[i:i + word_len]
-                if a in words:
-                    curr = {word : 0 for word in correct_answer}
-                    curr[a] += 1
-                    j = i + word_len
-                    counter = 1
-                    while j <= string_len - (word_len * (words_len - counter)):
-                        a = s[j:j + word_len]
-                        if a in curr and curr[a] < correct_answer[a]:
-                            curr[a] += 1
-                            counter += 1
-                            j = j + word_len
-                        else:
-                            break
+        correct_answer = Counter(words)
+        
+        for offset in range(word_len):
+            i = offset
+            while i <= string_len - word_len * words_len:
+                curr = Counter()
+                for j in range(i, i + word_len * words_len, word_len):
+                    word = s[j:j + word_len]
+                    if word not in correct_answer:
+                        i = j + word_len
+                        break
+                    curr[word] += 1
+                    if curr[word] > correct_answer[word]:
+                        i += word_len
+                        break
+                else: 
                     if curr == correct_answer:
                         result.append(i)
-                i += word_len
+                    i += word_len
         return result
         '''
         #Sliding Window Algorithm Incorporation
@@ -74,6 +74,5 @@ class Solution:
                     curr[word] += 1
                     counter = 1
                     while j <= string_len - (word_len * (words_len - counter)):
-                        
-'''
+        '''
 
