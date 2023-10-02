@@ -23,12 +23,10 @@ class Solution:
             return []
         counts = collections.defaultdict(int)
         result = []
-
         for i in range(s_len - 9):
             dna = s[i:i+10]
             counts[dna] += 1
             if counts[dna] == 2:
                 result.append(dna)
-
         return result
 
