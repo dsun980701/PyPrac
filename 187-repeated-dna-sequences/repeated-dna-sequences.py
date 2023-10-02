@@ -21,7 +21,7 @@ class Solution:
         s_len = len(s)
         if s_len < 10:
             return []
-        counts = defaultdict(int)
+        counts = collections.defaultdict(int)
         result = []
 
         for i in range(s_len - 9):
