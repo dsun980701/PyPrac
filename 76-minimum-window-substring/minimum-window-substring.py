@@ -41,20 +41,20 @@ class Solution:
         required = len(correct)
         l, r = 0, 0  # left and right pointers
         formed = 0  
-        window_counts = collections.defaultdict(int)
+        result = collections.defaultdict(int)
         #ans =  (minimum window length, left, right)
         ans = 999999999, None, None  
         while r < len(s):
             char = s[r]
-            window_counts[char] += 1
-            if char in correct and window_counts[char] == correct[char]:
+            result[char] += 1
+            if char in correct and result[char] == correct[char]:
                 formed += 1
             while l <= r and formed == required:
                 char = s[l]
                 if r - l + 1 < ans[0]:
                     ans = (r - l + 1, l, r)
-                window_counts[char] -= 1
-                if char in correct and window_counts[char] < correct[char]:
+                result[char] -= 1
+                if char in correct and result[char] < correct[char]:
                     formed -= 1
                 l += 1
             r += 1
