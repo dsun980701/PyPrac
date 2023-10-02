@@ -1,5 +1,7 @@
 class Solution:
     def minWindow(self, s: str, t: str) -> str:
+        '''
+    # First answer
         m = len(t)
         correct = collections.defaultdict(int)
         for char in t:
@@ -33,3 +35,27 @@ class Solution:
             else:
                 break
         return sub
+        '''
+    # Second answer optimizing the requirement check 
+        correct = collections.Counter(t)  
+        required = len(correct)
+        l, r = 0, 0  # left and right pointers
+        formed = 0  
+        window_counts = collections.defaultdict(int)
+        #ans =  (minimum window length, left, right)
+        ans = 999999999, None, None  
+        while r < len(s):
+            char = s[r]
+            window_counts[char] += 1
+            if char in correct and window_counts[char] == correct[char]:
+                formed += 1
+            while l <= r and formed == required:
+                char = s[l]
+                if r - l + 1 < ans[0]:
+                    ans = (r - l + 1, l, r)
+                window_counts[char] -= 1
+                if char in correct and window_counts[char] < correct[char]:
+                    formed -= 1
+                l += 1
+            r += 1
+        return "" if ans[0] == 999999999 else s[ans[1]: ans[2] + 1]
