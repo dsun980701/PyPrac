@@ -1,5 +1,7 @@
 class Solution:
     def findRepeatedDnaSequences(self, s: str) -> List[str]:
+        # Previous Answer using counter
+        '''
         s_len = len(s)
         if s_len < 10:
             return []
@@ -14,6 +16,19 @@ class Solution:
             if counts[tm] == 2:
                 result.append(tm)
         return result
-        
- 
+        '''
+        # Answer using HashTable
+        s_len = len(s)
+        if s_len < 10:
+            return []
+        counts = defaultdict(int)
+        result = []
+
+        for i in range(s_len - 9):
+            dna = s[i:i+10]
+            counts[dna] += 1
+            if counts[dna] == 2:
+                result.append(dna)
+
+        return result
 
