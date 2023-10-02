@@ -9,9 +9,10 @@ class Solution:
         counts[''.join(deck)] += 1 
         for char in s[10:]:
             deck.append(char)
-            counts[''.join(deck)] += 1
-            if counts[''.join(deck)] == 2:
-                result.append(''.join(deck))
+            tm = ''.join(deck)
+            counts[tm] += 1
+            if counts[tm] == 2:
+                result.append(tm)
         return result
         
  
