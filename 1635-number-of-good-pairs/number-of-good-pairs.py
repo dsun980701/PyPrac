@@ -1,7 +1,7 @@
 class Solution:
     def numIdenticalPairs(self, nums: List[int]) -> int:
         # First Answer Using sorting, Memory Efficient
-        '''
+
         len_nums = len(nums)
         pair_num = 0
         if len_nums < 2:
@@ -20,6 +20,7 @@ class Solution:
                  r += 1
                  l += 1
         return pair_num
+
         '''
         # Second answer using dict
         a = collections.Counter(nums)
@@ -28,6 +29,6 @@ class Solution:
             if val >= 2:
                 pair_num += math.comb(val, 2)
         return pair_num
-
+        '''
             
 
