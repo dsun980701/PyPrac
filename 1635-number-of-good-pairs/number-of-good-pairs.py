@@ -30,5 +30,6 @@ class Solution:
                 pair_num += math.comb(val, 2)
         return pair_num
         '''
-            
+        '''
+        '''
 
