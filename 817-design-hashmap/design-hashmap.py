@@ -7,14 +7,13 @@ class MyHashMap:
         self.map[key] = value
 
     def get(self, key: int) -> int:
-        if key in self.map:
+        try:
             return self.map[key]
-        else:
+        except:
             return -1
 
     def remove(self, key: int) -> None:
-        if key in self.map:
-            del self.map[key]
+        self.map.pop(key, None)
 
 
 # Your MyHashMap object will be instantiated and called as such:
