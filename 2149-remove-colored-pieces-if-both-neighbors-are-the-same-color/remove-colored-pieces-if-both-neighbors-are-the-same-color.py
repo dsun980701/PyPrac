@@ -25,6 +25,7 @@ class Solution:
         return a_count > b_count
         '''
         #Counter method
+        '''
         a_count, b_count = 0, 0
         a = collections.Counter('AAA')
         b = collections.Counter('BBB')
@@ -40,6 +41,17 @@ class Solution:
             if curr == a:
                 a_count += 1
             elif curr == b:
+                b_count += 1
+            i += 1
+        return a_count > b_count
+        '''
+        # Direct Comparison
+        a_count, b_count = 0, 0
+        i = 1
+        while i < len(colors)-1:
+            if colors[i -1] == 'A' and colors[i] == 'A' and colors[i+1] == 'A':
+                a_count += 1
+            elif colors[i -1] == 'B' and colors[i] == 'B' and colors[i+1] == 'B':
                 b_count += 1
             i += 1
         return a_count > b_count
