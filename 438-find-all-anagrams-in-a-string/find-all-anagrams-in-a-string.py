@@ -3,15 +3,14 @@ class Solution:
         len_p = len(p) - 1
         len_s = len(s)
         correct = collections.Counter(p)
-        check = collections.Counter()
+        check = collections.Counter(s[:len_p])
         result = []
-        i = 0
+        i = len_p
         while i < len_s:
             check[s[i]] += 1
-            if i >= len_p:
-                if check == correct:
-                    result.append(i - len_p)
-                check[s[i - len_p]] -= 1
+            if check == correct:
+                result.append(i - len_p)
+            check[s[i - len_p]] -= 1
             i += 1
         return result
                 
