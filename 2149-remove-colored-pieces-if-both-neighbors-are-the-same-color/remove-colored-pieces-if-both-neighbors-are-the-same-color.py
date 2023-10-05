@@ -45,6 +45,7 @@ class Solution:
             i += 1
         return a_count > b_count
         '''
+        '''
         # Direct Comparison
         a_count, b_count = 0, 0
         i = 1
@@ -54,4 +55,9 @@ class Solution:
             elif colors[i -1] == 'B' and colors[i] == 'B' and colors[i+1] == 'B':
                 b_count += 1
             i += 1
+        return a_count > b_count
+        '''
+        #Regular Expression
+        a_count = sum(len(match.group()) - 2 for match in re.finditer(r'A{3,}', colors))
+        b_count = sum(len(match.group()) - 2 for match in re.finditer(r'B{3,}', colors))
         return a_count > b_count
