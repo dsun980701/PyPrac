@@ -1,7 +1,6 @@
 class Solution:
     def isValidSudoku(self, board: List[List[str]]) -> bool:
         # First answer
-        '''
         column = [collections.defaultdict(int) for _ in range(9)]
         cube =[[collections.defaultdict(int) for _ in range(3)] for _ in range(3)] 
         r = 0
@@ -10,7 +9,7 @@ class Solution:
             c = 0
             while c < 9:
                 num = board[r][c]
-                if num.isnumeric():
+                if num != '.' :
                     row[num] += 1
                     column[c][num] += 1
                     cube[r//3][c//3][num] += 1
@@ -32,5 +31,5 @@ class Solution:
                     seen.add((num, j))
                     seen.add((i//3, j//3, num))
         return True
-                    
+        '''
                     
