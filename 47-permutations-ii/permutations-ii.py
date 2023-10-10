@@ -18,12 +18,17 @@ class Solution:
         result = []
         def help(nums, curr):
             if len(curr) == n:
-                result.append(curr)
+                result.append(curr.copy())
             for num in nums:
                 if nums[num] > 0:
+                    
                     nums[num] -= 1
-                    help(nums, curr + [num])
+                    # Concatenation of list is not constant time, hence changed
+                    # help(nums, curr + [num])
+                    curr.append(num)
+                    help(nums, curr)
                     nums[num] += 1
+                    curr.pop()
         help(nums, [])
         return result
 
