@@ -5,10 +5,7 @@ class Solution:
             # Base Case
             if not nums:
                 result.append(curr)
-            i = 0
-            n = len(nums) 
-            while i < n:
-             help(nums[:i] + nums[i+1:] if i != n - 1 else nums[:i] , curr + [nums[i]])
-             i += 1
+            for i in range(len(nums)):
+             help(nums[:i] + nums[i+1:], curr + [nums[i]])
         help(nums, [])
         return result
