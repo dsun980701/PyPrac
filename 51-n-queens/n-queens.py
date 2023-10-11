@@ -45,3 +45,5 @@ class Solution:
         prohibited_moves = set()
         next_move(prohibited_moves, 0)
         return result
+        '''
+        '''
