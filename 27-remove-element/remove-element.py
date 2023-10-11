@@ -1,6 +1,6 @@
 class Solution:
     def removeElement(self, nums: List[int], val: int) -> int:
-        # Previous Answer
+        # PreviousAnswer
         '''
         length = len(nums)
         while True:
@@ -11,7 +11,7 @@ class Solution:
                 break
         return length
         '''
-        # Time efficient
+        # TimeEfficient
         l, r =0, 0
         len_nums = len(nums)
         while r < len_nums:
