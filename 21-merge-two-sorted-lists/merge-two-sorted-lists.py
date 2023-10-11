@@ -14,6 +14,7 @@ class Solution:
             else:
                 return None
 
+        # Initialize
         prev, head = None, None
         i = 1
         while list1 and list2:
