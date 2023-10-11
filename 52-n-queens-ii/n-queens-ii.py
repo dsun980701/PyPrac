@@ -42,3 +42,9 @@ class Solution:
         prohibited_moves = set()
         next_move(prohibited_moves, 0)
         return RESULT
+
+        # HAHA answer
+        '''
+        res = [0,1,0,0,2,10,4,40,92,352]
+        return res[n]
+        '''
