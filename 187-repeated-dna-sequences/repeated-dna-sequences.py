@@ -31,7 +31,7 @@ class Solution:
                 result.append(dna)
         return result
         '''
-        # Answer using set, since set has constant time 
+        # Answer using set, since set has constant time access time with hash
         s_len = len(s)
         result = set()
         seen = set()
