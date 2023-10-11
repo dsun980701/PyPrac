@@ -8,7 +8,7 @@ class Solution:
         def next_move(prohibited_moves, n_queen):
             # Base Case
             if n_queen == n:
-                result.append([row[:] for row in board])
+                result.append([''.join(row[:]) for row in board])
                 return
 
             r, c = n_queen, 0
@@ -44,8 +44,4 @@ class Solution:
         # Will consist of all invalid move positions in tuple(row,column)
         prohibited_moves = set()
         next_move(prohibited_moves, 0)
-        for ans_board in result:
-            for row in range(len(ans_board)):
-                ans_board[row] = ''.join(ans_board[row])
-
         return result
