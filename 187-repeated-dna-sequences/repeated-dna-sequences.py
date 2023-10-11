@@ -18,6 +18,7 @@ class Solution:
         return result
         '''
         # Answer using HashTable
+        '''
         s_len = len(s)
         if s_len < 10:
             return []
@@ -29,4 +30,16 @@ class Solution:
             if counts[dna] == 2:
                 result.append(dna)
         return result
+        '''
+        # Answer using set, since set has constant time 
+        s_len = len(s)
+        result = set()
+        seen = set()
+        for i in range(s_len - 9):
+            dna = s[i:i+10]
+            if dna in seen:
+                result.add(dna)
+            seen.add(dna)
+        return result
+
 
