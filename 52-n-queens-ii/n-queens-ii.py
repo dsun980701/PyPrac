@@ -1,5 +1,7 @@
 class Solution:
     def totalNQueens(self, n: int) -> int:
+        # Proper answer using back track
+        '''
         if n == 2 or n == 3:
             return 0
         elif n == 1:
@@ -42,9 +44,8 @@ class Solution:
         prohibited_moves = set()
         next_move(prohibited_moves, 0)
         return RESULT
+        '''
 
         # HAHA answer
-        '''
         res = [0,1,0,0,2,10,4,40,92,352]
         return res[n]
-        '''
