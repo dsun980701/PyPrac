@@ -10,7 +10,7 @@ class Solution:
             if n_queen == n:
                 result.append([''.join(row[:]) for row in board])
                 return
-
+            #Problem reduction
             r, c = n_queen, 0
             while c < n:
                 if (r, c) in prohibited_moves:
