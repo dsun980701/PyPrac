@@ -1,6 +1,6 @@
 class Solution:
     def removeElement(self, nums: List[int], val: int) -> int:
-        # Previous Answer, preserving order
+        # Previous Answer
         '''
         length = len(nums)
         while True:
@@ -20,3 +20,4 @@ class Solution:
                 l += 1
             r += 1
         return l
+   
