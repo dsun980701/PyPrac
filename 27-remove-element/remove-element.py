@@ -12,15 +12,11 @@ class Solution:
         return length
         '''
         # Time efficient
-        length = len(nums)
-        i = 0
-        while i < length:
-            if nums[i] == val:
-                while length > 0 and nums[length - 1] == val:
-                    length -= 1
-                if length == i:
-                    break
-                nums[i] = nums[length - 1]
-                length -= 1
-            i += 1
-        return length
+        l, r =0, 0
+        len_nums = len(nums)
+        while r < len_nums:
+            if nums[r] != val:
+                nums[l] = nums[r]
+                l += 1
+            r += 1
+        return l
