@@ -23,13 +23,14 @@ class Solution:
         if indx == -1:
             indx = r + 1
 
+        # Search for overlaps
         res = intervals[:indx] 
         while indx < len(intervals) and intervals[indx][0] <= newInterval[1]:
             newInterval[0] = min(intervals[indx][0], newInterval[0])
             newInterval[1] = max(intervals[indx][1], newInterval[1])
             indx += 1
         res.append(newInterval)
-        #adding remaining elements to the list
+        # Add remaining elements to the list
         res += intervals[indx:]  
         return res        
         
