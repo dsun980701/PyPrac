@@ -2,7 +2,7 @@ import re
 
 class Solution:
     def lengthOfLastWord(self, s: str) -> int:
-        # Split
+        # Split function
         new_list = s.strip().split(' ')
         return len(new_list[-1])
 
@@ -20,7 +20,7 @@ class Solution:
             i -= 1
         return count
         '''
-        
+
         # Regular expression
         '''
         pattern = r'([a-zA-Z]+)\s*$'
