@@ -14,8 +14,8 @@ class Solution:
                 break
             i -= 1
         return count
-        '''
         # Regular expression
+        '''
         pattern = r'([a-zA-Z]+)\s*$'
         match = re.search(pattern, s)
         return len(match.group(1))
