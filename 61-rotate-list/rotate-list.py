@@ -20,7 +20,7 @@ class Solution:
         last_node.next = head
         for _ in range(num_nodes - k - 1):
             head = head.next
-        # Detach
+        # Sever the circular linked list
         result = head.next
         head.next = None
         return result
