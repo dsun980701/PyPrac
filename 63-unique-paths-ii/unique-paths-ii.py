@@ -3,7 +3,7 @@ class Solution:
         # Check existence of the obstacelGrid
         if not obstacleGrid:
             return 0 
-        # Initialize memo
+        # Initialize memoization
         memo = {}
         # Find the max row num and col num
         r_max, c_max = len(obstacleGrid)-1, len(obstacleGrid[0])-1
