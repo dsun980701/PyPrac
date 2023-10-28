@@ -46,6 +46,7 @@ class Solution:
         # Use all the starting locations
         for x in start:
             board[x[0]][x[1]] = ''
+            # Recursion start
             if have_word(x[0],x[1],1):
                 return True
             board[x[0]][x[1]] = word[0]
