@@ -6,6 +6,7 @@
 class Solution:
     def deleteDuplicates(self, head: Optional[ListNode]) -> Optional[ListNode]:
         curr = head
+        # Will hold the previous node which does not have duplicate for sure
         prev_num = None
         while curr and curr.next != None:
             # Curr's next is not a duplicate
