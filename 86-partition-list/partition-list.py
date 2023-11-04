@@ -13,6 +13,7 @@ class Solution:
         prev_less, prev = None, None
         while curr != None:
             if curr.val < x:
+                # Three cases to handle if value is less than x
                 if prev and prev_less:
                     if prev == prev_less:
                         prev, prev_less = curr, curr
