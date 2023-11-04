@@ -8,7 +8,7 @@ class Solution:
                     matrix[r][c] = int(matrix[r-1][c]) + 1 if (r > 0) else 1
                 else:
                     matrix[r][c] = 0
-        # With the histogram, compute the largest area using previous algorithm from LeetCode Num 84
+        # With the histogram, compute the largest area using previously used algorithm from LeetCode Num 84
         result = 0
         for row in matrix:
             row = row + [-1]
