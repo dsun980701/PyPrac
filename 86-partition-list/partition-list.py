@@ -5,7 +5,11 @@
 #         self.next = next
 class Solution:
     def partition(self, head: Optional[ListNode], x: int) -> Optional[ListNode]:
+        # Traverse through the linked list once
         curr = head
+        # Keep track of two previous nodes. 
+        #   -prev_less: tracks of the end of the linked node section which has the values lower than x
+        #   -prev: tracks of just previous node
         prev_less, prev = None, None
         while curr != None:
             if curr.val < x:
