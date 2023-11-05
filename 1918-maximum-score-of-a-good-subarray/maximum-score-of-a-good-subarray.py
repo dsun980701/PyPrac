@@ -5,7 +5,8 @@ class Solution:
         # Solver has to understand that we are trying to find the maximum
         # score where length is rewarded, but how small min value is within the
         # subarray is penalized. Code itself is self-explanatory
-        result, min_val = nums[k], nums[k]
+        min_val = nums[k]
+        result = min_val
         len_nums = len(nums)
         r, l = k, k
         while l > 0 or r < len_nums - 1:
