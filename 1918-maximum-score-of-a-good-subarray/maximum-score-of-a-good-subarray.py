@@ -4,7 +4,7 @@ class Solution:
         # The key point in this problem is framing the problem
         # Solver has to understand that we are trying to find the maximum
         # score where length is rewarded, but how small min value is within the
-        # subarray is penalized.
+        # subarray is penalized. Code itself is self-explanatory
         result, min_val = nums[k], nums[k]
         len_nums = len(nums)
         r, l = k, k
