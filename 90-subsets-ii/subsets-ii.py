@@ -5,7 +5,7 @@ class Solution:
         # collections is O(n), I used collections
         len_nums = len(nums)
         result = []
-        result.append(nums)
+        result.append(tuple(nums))
         nums = collections.Counter(nums)
         
         def subset(curr):
@@ -13,7 +13,7 @@ class Solution:
             if len(curr) == len_nums:
                 return
             # Append the curr
-            result.append(curr.copy())
+            result.append(tuple(curr))
             # 
             for key, val in nums.items():
                 if val == 0 or (curr and curr[-1] > key):
