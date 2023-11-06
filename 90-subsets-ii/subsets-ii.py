@@ -1,5 +1,8 @@
 class Solution:
     def subsetsWithDup(self, nums: List[int]) -> List[List[int]]:
+        # Answer using collections
+        # Sorting, then recursion also works, but since sorting is O(nlogn), and 
+        # collections is O(n), I used collections
         len_nums = len(nums)
         result = []
         result.append(nums)
