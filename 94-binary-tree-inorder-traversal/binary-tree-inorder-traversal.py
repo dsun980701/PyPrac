@@ -14,4 +14,5 @@ class Solution:
                 trav(curr.right)
         trav(root)
         return result
+        
                 
